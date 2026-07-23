@@ -4,365 +4,195 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Calvin Wade</title>
+		<title>Calvin Wade — Business & Data Analyst</title>
 		<link rel="stylesheet" href="style.css" />
-		<script
-			src="https://kit.fontawesome.com/c8e4d183c2.js"
-			crossorigin="anonymous"
-		></script>
-		<script src="index.js"></script>
-		<script
-			type="text/javascript"
-			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-		></script>
-		<script type="text/javascript">
-			(function () {
-				emailjs.init("8jgBetSyojQcI78XA");
-			})();
-		</script>
 	</head>
 
 	<body>
-		<section id="landing-page" onmousemove="moveBackground(event)">
-			<nav>
-				<figure>
-					<img id="personal-logo" src="" alt="" />
-				</figure>
-				<ul class="nav__link--list">
-					<li class="nav__link">
-						<a
-							href="#"
-							class="nav__link--anchor link__hover-effect link__hover-effect--black"
-							onclick="toggleModal()"
-							>About</a
-						>
-					</li>
-					<li class="nav__link">
-						<a
-							href="#projects"
-							class="nav__link--anchor link__hover-effect link__hover-effect--black"
-							>Projects</a
-						>
-					</li>
-					<li class="nav__link" onclick="toggleModal()">
-						<a
-							href="#"
-							class="nav__link--anchor link__hover-effect link__hover-effect--black"
-							>Contact</a
-						>
-					</li>
-					<li class="nav__link" onclick="toggleContrast()">
-						<a
-							href="#"
-							class="nav__link--anchor link__hover-effect link__hover-effect--black click"
-							><i class="fas fa-adjust"></i
-						></a>
-					</li>
+		<header class="site-header">
+			<nav class="nav container">
+				<a href="#top" class="logo">CW</a>
+				<ul class="nav-links">
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#" data-modal-open="about">About</a></li>
+					<li><a href="#" data-modal-open="contact">Contact</a></li>
 				</ul>
+				<div class="nav-actions">
+					<a href="assets/CalvinWadeResume.pdf" target="_blank" class="btn btn-ghost btn-sm">Resume</a>
+					<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+						<svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+						<svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+					</button>
+				</div>
 			</nav>
+		</header>
 
-			<header class="header">
-				<div class="header__content">
-					<h1 class="title">Hey</h1>
-					<h1 class="title blue">I'm Calvin.</h1>
-					<p class="header__para">
-						I'm a <b class="blue">Frontend Software Engineer</b> with a strong
-						passion for building web applications with great user experiences.
-						<br />
-						Here's a bit more
-						<b class="blue click" onclick="toggleModal()">about me</b>.
-					</p>
-					<div class="social__list">
-						<a
-							href="https://www.linkedin.com/in/calvin-wade/"
-							target="_blank"
-							class="social__link click"
-						>
-							<i class="fab fa-linkedin-in"></i>
-						</a>
-						<a
-							href="https://github.com/cjwade"
-							target="_blank"
-							class="social__link click"
-						>
-							<i class="fab fa-github"></i>
-						</a>
-						<a
-							href="assets/CalvinWadeResume.pdf"
-							target="_blank"
-							class="social__link click"
-						>
-							<i class="fas fa-file-pdf"></i>
-						</a>
-					</div>
+		<main>
+			<section class="hero container" id="top">
+				<p class="eyebrow">Business & Data Analyst</p>
+				<h1 class="hero-title">Hey, I'm Calvin.</h1>
+				<p class="hero-lede">
+					I turn data into decisions — analyzing business problems, building
+					dashboards, and translating numbers into clear, actionable
+					insights — currently
+					<b>open to new opportunities</b>. Here's a bit more
+					<a href="#" data-modal-open="about" class="text-link">about me</a>.
+				</p>
+				<div class="hero-actions">
+					<a href="#projects" class="btn btn-primary">View projects</a>
+					<a href="#" class="btn btn-ghost" data-modal-open="contact">Get in touch</a>
 				</div>
-			</header>
-			<a href="#">
-				<button class="mail__btn click" onclick="toggleModal()">
-					<i class="fas fa-envelope"></i>
-				</button>
-			</a>
-			<a href="#projects" class="scroll">
-				<div class="scroll__icon click"></div>
-			</a>
+				<div class="social-list">
+					<a href="https://github.com/cjwade" target="_blank" class="social-link" aria-label="GitHub">
+						<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.94 3.2 9.13 7.65 10.6.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.24-1.65-1.24-1.65-1.01-.7.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.48-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15.9-.25 1.85-.37 2.8-.37.95 0 1.9.12 2.8.37 2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.24-5.12 5.52.4.35.76 1.03.76 2.09v3.1c0 .3.2.65.77.54 4.44-1.48 7.64-5.66 7.64-10.6C23.02 5.24 18.27.5 12 .5z"/></svg>
+					</a>
+					<a href="https://www.linkedin.com/in/calvin-wade/" target="_blank" class="social-link" aria-label="LinkedIn">
+						<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+					</a>
+					<a href="assets/CalvinWadeResume.pdf" target="_blank" class="social-link" aria-label="Resume">
+						<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+					</a>
+				</div>
+			</section>
 
-			<div class="modal">
-				<div class="modal__half modal__about">
-					<h3 class="modal__title modal__title--about">
-						Here's a bit about me.
-					</h3>
-					<h4 class="modal__sub-title modal__sub-title--about">
-						Frontend Software Engineer
-					</h4>
-					<p class="modal__para">
-						I'm a 25 year old
-						<b class="blue">frontend software engineer</b> with a strong passion
-						for developing websites with great
-						<b class="blue"> user experiences</b>.
-						<br />
-						I currently work on extremely difficult engineering problems and
-						learn from a team consisting of some of the most
-						<b class="blue">talented</b> and
-						<b class="blue">experienced</b> software engineers every day.
-					</p>
-					<div class="modal__languages">
-						<figure class="modal__language">
-							<img
-								class="modal__language--img"
-								src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
-								alt=""
-							/>
-							<span class="language__name">HTML</span>
-						</figure>
-						<figure class="modal__language">
-							<img
-								class="modal__language--img"
-								src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
-								alt=""
-							/>
-							<span class="language__name">CSS</span>
-						</figure>
-						<figure class="modal__language">
-							<img
-								class="modal__language--img"
-								src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
-								alt=""
-							/>
-							<span class="language__name">JavaScript</span>
-						</figure>
-						<figure class="modal__language">
-							<img
-								class="modal__language--img"
-								src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png"
-								alt=""
-							/>
-							<span class="language__name">React</span>
-						</figure>
-					</div>
+			<section class="projects container" id="projects">
+				<div class="section-heading">
+					<h2>Selected projects</h2>
+					<p>A few things I've been building recently.</p>
 				</div>
 
-				<div class="modal__half modal__contact">
-					<i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
-					<h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
-					<h3 class="modal__sub-title modal__sub-title--contact">
-						I'm currently open to new opportunities.
-					</h3>
-					<form id="contact__form" onsubmit="contact(event)">
-						<div class="form__item">
-							<label class="form__item--label">Name</label>
-							<input type="text" name="user_name" class="input" required />
-						</div>
-						<div class="form__item">
-							<label class="form__item--label">E-mail</label>
-							<input type="email" name="user_email" class="input" required />
-						</div>
-						<div class="form__item">
-							<label class="form__item--label">Message</label>
-							<textarea
-								type="text"
-								name="message"
-								class="input"
-								required
-							></textarea>
-						</div>
-						<button class="form__submit" id="contact__submit">
-							Send it my way
-						</button>
-					</form>
-					<div class="modal__overlay modal__overlay--loading">
-						<i class="fas fa-spinner"></i>
-					</div>
-					<div class="modal__overlay modal__overlay--success">
-						Thanks for the message! Looking forward to speaking to you soon.
-					</div>
-				</div>
-			</div>
-			<img src="/assets/semi circle.svg" class="shape shape--0" />
-			<img src="/assets/circle.svg" class="shape shape--1" />
-			<img src="/assets/squiggly.svg" class="shape shape--2" />
-			<img src="/assets/circle.svg" class="shape shape--3" />
-			<img src="/assets/triangle.svg" class="shape shape--4" />
-			<img src="/assets/circle.svg" class="shape shape--5" />
-			<img src="/assets/squiggly.svg" class="shape shape--6" />
-			<img src="/assets/circle.svg" class="shape shape--7" />
-			<img src="/assets/semi circle.svg" class="shape shape--8" />
-		</section>
-		<section id="projects">
-			<div class="container">
-				<div class="row">
-					<h1 class="section__title">
-						Here are some of my <span class="blue">projects</span>
-					</h1>
-					<ul class="project__list">
-						<li class="project">
-							<div class="project__wrapper">
-								<img src="assets/library.png" class="project__img" alt="" />
-								<div class="project__wrapper--bg"></div>
-								<div class="project__description">
-									<h3 class="project__description--title">
-										E-Commerce Website
-									</h3>
-									<h4 class="project__description--sub-title">
-										HTML, CSS, Javascript, React.js
-									</h4>
-									<p class="project__description--para">
-										Developed a mock e-commerce store built with React.js.
-										Includes functionality to add and remove items from cart as
-										well as sort items by price and rating. A skeleton loading
-										state was also added to enhance the user experience.
-									</p>
-									<div class="project__description--links">
-										<a
-											href="https://github.com/cjwade/library-react-app"
-											class="project__description--link"
-											target="_blank"
-										>
-											<i class="fab fa-github"></i>
-										</a>
-										<a
-											href="https://tourmaline-crumble-55bc57.netlify.app"
-											class="project__description--link"
-											target="_blank"
-										>
-											<i class="fas fa-link"></i>
-										</a>
-									</div>
-								</div>
+				<div class="project-grid">
+					<!-- PLACEHOLDER PROJECT 1 — swap image, title, tags, description, and links -->
+					<article class="project-card">
+						<img src="assets/project placeholder.png" alt="" class="project-card-img" />
+						<div class="project-card-body">
+							<h3>Project name</h3>
+							<div class="tag-list">
+								<span class="tag">SQL</span>
+								<span class="tag">Excel</span>
 							</div>
-						</li>
-						<li class="project">
-							<div class="project__wrapper">
-								<img src="assets/twitter.png" class="project__img" alt="" />
-								<div class="project__wrapper--bg"></div>
-								<div class="project__description">
-									<h3 class="project__description--title">Twitter Clone</h3>
-									<h4 class="project__description--sub-title">
-										HTML, Tailwind CSS, JavaScript, React.js, Next.js, Firebase
-									</h4>
-									<p class="project__description--para">
-										Implemented Google user authentication using NextAuth.js to
-										generate a Twitter username as well as display the user's
-										name and profile picture. User also has the ability to post
-										and delete tweets as well as like and comment on them.
-										<br /><br />
-										User generated data is stored in Firebase. Developed and
-										made fully responsive using React, JavaScript, HTML, and CSS
-										best practices.
-									</p>
-									<div class="project__description--links">
-										<a
-											href="https://github.com/cjwade/twitter-clone"
-											class="project__description--link"
-											target="_blank"
-										>
-											<i class="fab fa-github"></i>
-										</a>
-										<a
-											href="https://twitter-clone-nine-wheat.vercel.app"
-											class="project__description--link"
-											target="_blank"
-										>
-											<i class="fas fa-link"></i>
-										</a>
-									</div>
-								</div>
+							<p>
+								Replace this with a short description: what business
+								question the project answers, the data/tools you used, and
+								the impact of your findings.
+							</p>
+							<div class="project-links">
+								<a href="#" target="_blank">Code</a>
+								<a href="#" target="_blank">Live demo</a>
 							</div>
-						</li>
-						<li class="project">
-							<div class="project__wrapper">
-								<img src="assets/mexplorer.png" class="project__img" alt="" />
-								<div class="project__wrapper--bg"></div>
-								<div class="project__description">
-									<h3 class="project__description--title">Movie DB App</h3>
-									<h4 class="project__description--sub-title">
-										HTML, Tailwind CSS, JavaScript, React.js
-									</h4>
-									<p class="project__description--para">
-										Uses TMDB API to fetch movies and display them dynamically.
-										Includes a movie info page that gives the user key info
-										about each movie. Movies are also able to be sorted by
-										popularity, rating, and by what's currently playing in
-										theatres.
-									</p>
-									<div class="project__description--links">
-										<a
-											href="https://github.com/cjwade/react-movie-app"
-											class="project__description--link"
-											target="_blank"
-										>
-											<i class="fab fa-github"></i>
-										</a>
-										<a
-											href="https://statuesque-biscotti-dcb49b.netlify.app/"
-											class="project__description--link"
-											target="_blank"
-										>
-											<i class="fas fa-link"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
+						</div>
+					</article>
 
-		<footer>
-			<div class="container">
-				<div class="row footer__row">
-					<figure>
-						<img class="footer__logo--img" src="" alt="" />
-					</figure>
-					<div class="footer__social--list">
-						<a
-							href="https://github.com/cjwade"
-							class="footer__social--link link__hover-effect link__hover-effect--white"
-							target="_blank"
-							>Github</a
-						>
-						<a
-							href="https://www.linkedin.com/in/calvin-wade/"
-							class="footer__social--link link__hover-effect link__hover-effect--white"
-							target="_blank"
-							>LinkedIn</a
-						>
-						<a
-							href="#"
-							class="footer__social--link link__hover-effect link__hover-effect--white"
-							onclick="toggleModal()"
-							>Contact</a
-						>
-						<a
-							href="#"
-							class="footer__social--link link__hover-effect link__hover-effect--white"
-							target="_blank"
-							>Resume</a
-						>
-					</div>
-					<div class="footer__copyright">Copyright &copy; 2022 Calvin Wade</div>
+					<!-- PLACEHOLDER PROJECT 2 -->
+					<article class="project-card">
+						<img src="assets/project placeholder.png" alt="" class="project-card-img" />
+						<div class="project-card-body">
+							<h3>Project name</h3>
+							<div class="tag-list">
+								<span class="tag">Tableau</span>
+								<span class="tag">SQL</span>
+							</div>
+							<p>
+								Replace this with a short description: what business
+								question the project answers, the data/tools you used, and
+								the impact of your findings.
+							</p>
+							<div class="project-links">
+								<a href="#" target="_blank">Code</a>
+								<a href="#" target="_blank">Live demo</a>
+							</div>
+						</div>
+					</article>
+
+					<!-- PLACEHOLDER PROJECT 3 -->
+					<article class="project-card">
+						<img src="assets/project placeholder.png" alt="" class="project-card-img" />
+						<div class="project-card-body">
+							<h3>Project name</h3>
+							<div class="tag-list">
+								<span class="tag">Power BI</span>
+								<span class="tag">Excel</span>
+							</div>
+							<p>
+								Replace this with a short description: what business
+								question the project answers, the data/tools you used, and
+								the impact of your findings.
+							</p>
+							<div class="project-links">
+								<a href="#" target="_blank">Code</a>
+								<a href="#" target="_blank">Live demo</a>
+							</div>
+						</div>
+					</article>
 				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-row">
+				<span class="footer-logo">CW</span>
+				<div class="footer-links">
+					<a href="https://github.com/cjwade" target="_blank">GitHub</a>
+					<a href="https://www.linkedin.com/in/calvin-wade/" target="_blank">LinkedIn</a>
+					<a href="#" data-modal-open="contact">Contact</a>
+					<a href="assets/CalvinWadeResume.pdf" target="_blank">Resume</a>
+				</div>
+				<span class="copyright">© <span id="year"></span> Calvin Wade</span>
 			</div>
 		</footer>
+
+		<div class="modal-overlay" id="modal-about" aria-hidden="true">
+			<div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="about-title">
+				<button class="modal-close" data-modal-close aria-label="Close">
+					<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+				</button>
+				<h3 id="about-title">Here's a bit about me.</h3>
+				<h4 class="modal-subtitle">Business & Data Analyst</h4>
+				<p>
+					I'm a <b>business and data analyst</b> with a strong passion for
+					digging into data, spotting patterns, and turning them into
+					<b>clear, actionable insights</b>. I enjoy working closely with
+					stakeholders to understand the real problem behind the question,
+					then building the analysis or dashboard that answers it.
+				</p>
+				<div class="skill-pills">
+					<span class="tag">SQL</span>
+					<span class="tag">Excel</span>
+					<span class="tag">Tableau</span>
+					<span class="tag">Power BI</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-overlay" id="modal-contact" aria-hidden="true">
+			<div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+				<button class="modal-close" data-modal-close aria-label="Close">
+					<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+				</button>
+				<h3 id="contact-title">Let's have a chat!</h3>
+				<h4 class="modal-subtitle">I'm currently open to new opportunities.</h4>
+				<form id="contact-form">
+					<div class="form-item">
+						<label for="user_name">Name</label>
+						<input type="text" id="user_name" name="user_name" required />
+					</div>
+					<div class="form-item">
+						<label for="user_email">E-mail</label>
+						<input type="email" id="user_email" name="user_email" required />
+					</div>
+					<div class="form-item">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary form-submit" id="contact-submit">
+						Send it my way
+					</button>
+					<p class="form-status" id="form-status" role="status"></p>
+				</form>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>
