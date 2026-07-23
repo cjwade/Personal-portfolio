@@ -25,14 +25,18 @@ function applyTheme(theme) {
 	themeToggle.setAttribute("aria-pressed", theme === "dark");
 }
 
+const FOCUSABLE_SELECTOR =
+	'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 const modalOpenTriggers = document.querySelectorAll("[data-modal-open]");
 const modalCloseTriggers = document.querySelectorAll("[data-modal-close]");
 let activeModal = null;
+let lastFocusedElement = null;
 
 modalOpenTriggers.forEach((trigger) => {
 	trigger.addEventListener("click", (event) => {
 		event.preventDefault();
-		openModal(document.getElementById(`modal-${trigger.dataset.modalOpen}`));
+		openModal(document.getElementById(`modal-${trigger.dataset.modalOpen}`), trigger);
 	});
 });
 
@@ -47,14 +51,24 @@ document.querySelectorAll(".modal-overlay").forEach((overlay) => {
 });
 
 document.addEventListener("keydown", (event) => {
-	if (event.key === "Escape") closeModal();
+	if (!activeModal) return;
+	if (event.key === "Escape") {
+		closeModal();
+		return;
+	}
+	if (event.key === "Tab") trapFocus(event);
 });
 
-function openModal(modal) {
+function openModal(modal, trigger) {
 	if (!modal) return;
 	activeModal = modal;
+	lastFocusedElement = trigger || document.activeElement;
 	modal.classList.add("is-open");
 	modal.setAttribute("aria-hidden", "false");
+	requestAnimationFrame(() => {
+		const focusable = modal.querySelectorAll(FOCUSABLE_SELECTOR);
+		if (focusable.length) focusable[0].focus();
+	});
 }
 
 function closeModal() {
@@ -62,6 +76,23 @@ function closeModal() {
 	activeModal.classList.remove("is-open");
 	activeModal.setAttribute("aria-hidden", "true");
 	activeModal = null;
+	if (lastFocusedElement) lastFocusedElement.focus();
+	lastFocusedElement = null;
+}
+
+function trapFocus(event) {
+	const focusable = Array.from(activeModal.querySelectorAll(FOCUSABLE_SELECTOR));
+	if (!focusable.length) return;
+	const first = focusable[0];
+	const last = focusable[focusable.length - 1];
+
+	if (event.shiftKey && document.activeElement === first) {
+		event.preventDefault();
+		last.focus();
+	} else if (!event.shiftKey && document.activeElement === last) {
+		event.preventDefault();
+		first.focus();
+	}
 }
 
 const contactForm = document.getElementById("contact-form");
