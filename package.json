@@ -1,24 +1,33 @@
 {
-  "name": "personal-portfolio",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Calvin Wade's personal portfolio site",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cjwade/Personal-portfolio.git"
-  },
-  "author": "Calvin Wade",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cjwade/Personal-portfolio/issues"
-  },
-  "homepage": "https://github.com/cjwade/Personal-portfolio#readme",
-  "devDependencies": {
-    "vite": "^8.1.5"
-  }
+	"name": "personal-portfolio",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"description": "Calvin Wade's personal portfolio site",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "eslint .",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cjwade/Personal-portfolio.git"
+	},
+	"author": "Calvin Wade",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/cjwade/Personal-portfolio/issues"
+	},
+	"homepage": "https://github.com/cjwade/Personal-portfolio#readme",
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"eslint": "^10.7.0",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^17.7.0",
+		"prettier": "^3.9.6",
+		"vite": "^8.1.5"
+	}
 }
