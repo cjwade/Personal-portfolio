@@ -4,7 +4,9 @@ const THEME_KEY = "theme";
 const themeToggle = document.getElementById("theme-toggle");
 const preferredTheme =
 	localStorage.getItem(THEME_KEY) ||
-	(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+	(window.matchMedia("(prefers-color-scheme: dark)").matches
+		? "dark"
+		: "light");
 
 applyTheme(preferredTheme);
 
@@ -30,7 +32,10 @@ let lastFocusedElement = null;
 modalOpenTriggers.forEach((trigger) => {
 	trigger.addEventListener("click", (event) => {
 		event.preventDefault();
-		openModal(document.getElementById(`modal-${trigger.dataset.modalOpen}`), trigger);
+		openModal(
+			document.getElementById(`modal-${trigger.dataset.modalOpen}`),
+			trigger,
+		);
 	});
 });
 
@@ -75,7 +80,9 @@ function closeModal() {
 }
 
 function trapFocus(event) {
-	const focusable = Array.from(activeModal.querySelectorAll(FOCUSABLE_SELECTOR));
+	const focusable = Array.from(
+		activeModal.querySelectorAll(FOCUSABLE_SELECTOR),
+	);
 	if (!focusable.length) return;
 	const first = focusable[0];
 	const last = focusable[focusable.length - 1];
@@ -107,7 +114,8 @@ contactForm.addEventListener("submit", (event) => {
 		body,
 	})
 		.then((response) => {
-			if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
+			if (!response.ok)
+				throw new Error(`Form submission failed: ${response.status}`);
 			formStatus.textContent =
 				"Thanks for the message! Looking forward to speaking to you soon.";
 			formStatus.className = "form-status success";
