@@ -1,9 +1,3 @@
-const EMAILJS_PUBLIC_KEY = "8jgBetSyojQcI78XA";
-const EMAILJS_SERVICE_ID = "service_zt3ijnl";
-const EMAILJS_TEMPLATE_ID = "template_ghfzl7d";
-
-emailjs.init(EMAILJS_PUBLIC_KEY);
-
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const THEME_KEY = "theme";
@@ -105,9 +99,15 @@ contactForm.addEventListener("submit", (event) => {
 	formStatus.textContent = "Sending...";
 	formStatus.className = "form-status";
 
-	emailjs
-		.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, event.target)
-		.then(() => {
+	const body = new URLSearchParams(new FormData(contactForm)).toString();
+
+	fetch("/", {
+		method: "POST",
+		headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		body,
+	})
+		.then((response) => {
+			if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
 			formStatus.textContent =
 				"Thanks for the message! Looking forward to speaking to you soon.";
 			formStatus.className = "form-status success";
@@ -116,7 +116,7 @@ contactForm.addEventListener("submit", (event) => {
 		})
 		.catch(() => {
 			formStatus.textContent =
-				"The email service is temporarily unavailable. Please reach me directly at calvinwade97@gmail.com.";
+				"Something went wrong sending that. Please reach me directly at calvinwade97@gmail.com.";
 			formStatus.className = "form-status error";
 			contactSubmit.disabled = false;
 		});

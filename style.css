@@ -485,6 +485,14 @@ button {
 	background-color: var(--bg-alt);
 }
 
+.hidden-field {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
 .form-item {
 	margin-bottom: 18px;
 }

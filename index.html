@@ -214,14 +214,18 @@
 				</button>
 				<h3 id="contact-title">Let's have a chat!</h3>
 				<h4 class="modal-subtitle">I'm currently open to new opportunities.</h4>
-				<form id="contact-form">
+				<form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+					<input type="hidden" name="form-name" value="contact" />
+					<p class="hidden-field">
+						<label>Leave this field blank: <input name="bot-field" /></label>
+					</p>
 					<div class="form-item">
 						<label for="user_name">Name</label>
-						<input type="text" id="user_name" name="user_name" required />
+						<input type="text" id="user_name" name="name" required />
 					</div>
 					<div class="form-item">
 						<label for="user_email">E-mail</label>
-						<input type="email" id="user_email" name="user_email" required />
+						<input type="email" id="user_email" name="email" required />
 					</div>
 					<div class="form-item">
 						<label for="message">Message</label>
@@ -235,7 +239,6 @@
 			</div>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script type="module" src="index.js"></script>
 	</body>
 </html>
